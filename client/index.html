@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Starter Template for Bootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheer" href="css/style.css">
+   <style>
+    .wrapper {
+    text-align: center;
+    align-content:center;
+    padding-top:20em;
+}
+
+.button {
+   
+   top:50%;
+}
+.modal-footer{
+    text-align:center;
+    align-content:center;
+}
+</style>
+</head>
+<body>
+    
+    <div class="container" id="maindiv">
+        <div class="wrapper">
+            <button id="Login" class=" btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1">Login</button>
+            <button id="Register" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal2">Register</button>
+        
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="userName">User Name</label>
+                                <input type="text" class="form-control" id="userName" placeholder="User Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="PwdLogin">Password</label>
+                                <input type="password" class="form-control" id="PwdLogin" placeholder="Password">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal" id="Login1">Login</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="newName">User Name <abbr style="color:red;">*</abbr> </label>
+                                    <input type="text" class="form-control" id="newName" placeholder="User Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Pwd">Password <abbr  style="color:red;">*</abbr></label>
+                                    <input type="password" class="form-control" id="pwd" placeholder="Password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Pwd1">Re-type Password <abbr style="color:red;">*</abbr></label>
+                                    <input type="password" class="form-control" id="Pwd1" placeholder="Re-type Password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">Email <abbr style="color:red;">*</abbr></label>
+                                    <input type="email" class="form-control" id="Email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mob">Mobile number</label>
+                                    <input type="number" class="form-control" id="mob" placeholder="Mobile Number">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal" id="Register1">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+                </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     <script type="text/javascript" >
+    /* $(document).ready(function(){
+    console.log('dom loaded');
+     $('#Register1').click(function() {
+       console.log("Successfully registered");
+        var set = {};
+        set.name = $('#newName').val();
+        set.pwd=$('#Pwd1').val();
+        set.email = $('#Email').val();
+        set.Mobile=$('#mob').val();
+
+        // Ajax post creating new user 
+        $.ajax({
+            method: 'POST',
+            url: '/newUser',
+            data: set
+        }).done(function(newDoc) {
+         alert('registered');
+        }) 
+    });
+
+
+    $('#Login1').click(function() {
+       console.log("login button clicked");
+        var set = {};
+        set.name = $('#userName').val();
+        set.pwd=$('#PwdLogin').val();
+        
+
+        
+        $.ajax({
+            method: 'PUT',
+            url: '/login',
+            data: set
+        }).done(function(newDoc) {
+            console.log(set.name);
+         console.log(newDoc);
+         document.getElementById("maindiv").innerHTML=newDoc;
+         //$("#maindiv").html(newDoc);
+        }) ;
+    });
+    //for clearing the fields of the modal's form every time you open it. 
+    $(".modal").on("hidden.bs.modal", function(){
+    $(this).find('form')[0].reset();
+});
+
+
+}) */
+
+  $('#Login1').click(function() {
+       console.log("login button clicked");
+       /* var set = {};
+        set.name = $('#userName').val();
+        set.pwd=$('#PwdLogin').val();
+        */
+
+        
+        $.ajax({
+            method: 'POST',
+            url: '/login',
+            //data: set
+        }).done(function(newDoc) {
+                       document.write(newDoc);
+                       // window.location = "http://google.com";
+            //console.log(set.name);
+        // console.log(newDoc);
+        // document.getElementById("maindiv").innerHTML=newDoc;
+         //$("#maindiv").html(newDoc);
+        }) ;
+    });
+     </script>
+
+</body>
+</html>
